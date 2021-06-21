@@ -1,5 +1,7 @@
 <?php
 
+include './connect.php';
+
 $alert_class='alert-warning';
 $alert_msg = 'Please fill the form';
 
@@ -27,7 +29,14 @@ if ($_POST) {
 <!DOCTYPE html>
 <html lang="">
   <head>
-    <meta charset="utf-8">
+    <style>
+    .snd-btn {
+  background-color: blue;
+  color: white;
+    }
+
+    </style>
+     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PHP program to compare Two Strings!</title>
@@ -47,23 +56,26 @@ if ($_POST) {
       </div>
 
       <!-- our form -->
-      <form action="" method="POST" role="form">
+      <form action="./sound.php" method="POST" role="form">
       
         <div class="form-group">
           <label for="first_string">Enter First string:</label>
           <input type="text" class="form-control" 
-          name="first_string" id="first_string" 
+          name="str1" id="first_string" 
           value="<?=(isset($_POST['first_string'])) ? $_POST['first_string'] : '';?>">
         </div>
       
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="second_string">Enter Second string:</label>
           <input type="text" class="form-control"
-        name="second_string" id="second_string" 
+        name="str2" id="second_string" 
         value="<?=(isset($_POST['second_string'])) ? $_POST['second_string']: '';?>">
-        </div>
+        </div> -->
 
         <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" name="sound">Soundex</button>
+        <!-- <a target="_blank" class="snd-btn,btn btn-primary" href="./sound.php">soundex</a>   -->
+ 
       </form>
     </div>
   </body>
